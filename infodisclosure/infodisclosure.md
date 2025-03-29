@@ -33,3 +33,7 @@ Answer the following:
 1. Briefly explain the potential vulnerabilities in **insecure.ts**
 2. Briefly explain how a malicious attacker can exploit them.
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the information disclosure vulnerability?
+
+1. insecure.ts does not sanitize the given username in the request and it is used directly in the DB query.
+2. a malicious attacker can do a nosql injection by adding in their own sql code into the username with the correct syntax.
+3. in secure.ts, the username is checked to be a string without any non-alphanumeric characters that can be a part of an injection attack.

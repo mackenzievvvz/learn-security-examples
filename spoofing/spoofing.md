@@ -32,3 +32,8 @@ This example demonstrates spoofind through two ways -- Stealing cookies programm
 1. Briefly explain the spoofing vulnerability in **insecure.ts**.
 2. Briefly explain different ways in which vulnerability can be exploited.
 3. Briefly explain why **secure.ts** does not have the spoofing vulnerability in **insecure.ts**.
+
+
+1. According to http protocol, all cookies get automatically sent to a server UNLESS specifically forbidden to do so. Therefore, because the `httpOnly` and `sameSite` properties are not set, the cookies are configured so it can be used across domains. `httpOnly` means that cookies are readable programatically, which is a security issue. `sameSite` means that the cookie will only be sent to the server, and not to anyone else.
+2. When the malicious link sends a post request to the server, the cookie with the session id is sent to the server as well, and the spoofer gets the session id. So any request to the server will give the client access to the session id.
+3. **secure.ts** sets `httpOnly` and `sameSite` to `true`, meaning that cookies will not be sent along unless it is from the same server and http as was given the cookies.

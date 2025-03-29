@@ -27,3 +27,8 @@ Answer the following:
 1. Briefly explain the potential vulnerabilities in **insecure.ts**
 2. Briefly explain how a malicious attacker can exploit them.
 3. Briefly explain why **secure.ts** does not have the same vulnerabilties?
+
+
+1. Insecure.ts does not check any of the input, which is used directly to set the session user.
+2. if the input has html special characters, it can be used to insert and run it's own code code.
+3. secure.ts does not have the same vulnerabilities because is cleans the input string to remove potential html special characters escaped.
